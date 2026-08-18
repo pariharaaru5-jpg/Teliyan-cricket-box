@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teliyan Cricket Box | Online Booking</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f7fb;color:#172033}
+header{background:linear-gradient(135deg,#111827,#26364f);color:#fff;padding:38px 18px;text-align:center}
+header h1{margin:0 0 8px;font-size:34px}header p{margin:5px 0;color:#dbe4f0}
+.container{max-width:900px;margin:auto;padding:20px}
+.card{background:#fff;border-radius:18px;padding:22px;margin:16px 0;box-shadow:0 5px 22px rgba(0,0,0,.08)}
+h2{margin-top:0}.rates{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.rate{padding:18px;border-radius:14px;background:#eef6ff;text-align:center}.rate b{display:block;font-size:26px;margin-top:5px}
+label{display:block;font-weight:700;margin:13px 0 6px}input,select,button{width:100%;padding:13px;border:1px solid #d7dce5;border-radius:10px;font-size:16px}
+button{background:#16a34a;color:#fff;border:0;font-weight:700;cursor:pointer;margin-top:14px}
+button:hover{background:#15803d}.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:10px}
+.slot{padding:11px 5px;border:1px solid #cfd6e2;border-radius:9px;background:#fff;cursor:pointer;font-size:14px}
+.slot.selected{background:#172033;color:#fff;border-color:#172033}.slot.booked{background:#e5e7eb;color:#9ca3af;cursor:not-allowed;text-decoration:line-through}
+.summary{background:#f0fdf4;border-radius:12px;padding:15px;margin-top:15px}.qr{display:block;width:min(100%,360px);margin:12px auto;border-radius:12px}
+.small{font-size:13px;color:#687386;line-height:1.5}.success{display:none;background:#dcfce7;color:#166534;padding:15px;border-radius:12px;margin-top:15px}
+footer{text-align:center;padding:30px 15px;color:#687386}
+@media(max-width:600px){header h1{font-size:28px}.rates{grid-template-columns:1fr}.slots{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<header>
+  <h1>🏏 Teliyan Cricket Box</h1>
+  <p>24 घंटे Open • Online Turf Booking</p>
+  <p>📍 Jain Vishva Bharati Road, Sudhangarh</p>
+</header>
+
+<div class="container">
+  <div class="card">
+    <h2>💰 Booking Rates</h2>
+    <div class="rates">
+      <div class="rate">☀️ Day<b>₹600 / hour</b></div>
+      <div class="rate">🌙 Night<b>₹1,200 / hour</b></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>📅 Book Your Slot</h2>
+    <label for="date">Date</label>
+    <input id="date" type="date">
+
+    <label for="period">Timing</label>
+    <select id="period" onchange="renderSlots()">
+      <option value="day">Day — ₹600/hour</option>
+      <option value="night">Night — ₹1,200/hour</option>
+    </select>
+
+    <label>Available Slots</label>
+    <div id="slots" class="slots"></div>
+
+    <label for="hours">Number of hours</label>
+    <select id="hours" onchange="updateSummary()">
+      <option value="1">1 Hour</option>
+      <option value="2">2 Hours</option>
+      <option value="3">3 Hours</option>
+      <option value="4">4 Hours</option>
+    </select>
+
+    <label for="name">Your Name</label>
+    <input id="name" placeholder="नाम लिखें">
+
+    <label for="phone">Mobile Number</label>
+    <input id="phone" type="tel" placeholder="10 digit mobile number">
+
+    <div class="summary">
+      <b>Booking Summary</b>
+      <div id="summary">Date और slot चुनें।</div>
+    </div>
+
+    <button onclick="bookNow()">📲 Booking Request WhatsApp पर भेजें</button>
+    <div id="success" class="success"></div>
+    <p class="small">Booking rule: 50% advance payment. नीचे दिया गया QR scan करके payment करें और फिर WhatsApp पर booking request भेजें.</p>
+  </div>
+
+  <div class="card">
+    <h2>💳 50% Advance Payment</h2>
+    <img class="qr" src="payment-qr.png" alt="Navi UPI Payment QR">
+    <p style="text-align:center"><b>ROSHAN ALI PARIHAR</b><br>UPI ID: 9587600798@naviaxis</p>
+    <p class="small" style="text-align:center">Payment करने के बाद transaction screenshot WhatsApp पर भेजें.</p>
+  </div>
+
+  <div class="card">
+    <h2>📍 Location</h2>
+    <p>Jain Vishva Bharati Road, Sudhangarh</p>
+    <p class="small">Turf 24 घंटे open है। Booking availability इस page पर चुने गए slots के आधार पर दिखाई जाएगी.</p>
+  </div>
+</div>
+
+<footer>© 2026 Teliyan Cricket Box • All Rights Reserved</footer>
+
+<script>
+const WHATSAPP_NUMBER = "91XXXXXXXXXX"; // अपना WhatsApp नंबर यहां डालें
+let selectedSlot = "";
+let booked = JSON.parse(localStorage.getItem("teliyan_booked") || "{}");
+
+function getSlots(){
+  const slots=[];
+  if(document.getElementById("period").value==="day"){
+    for(let h=6;h<18;h++) slots.push(`${String(h).padStart(2,"0")}:00 - ${String(h+1).padStart(2,"0")}:00`);
+  }else{
+    for(let h=18;h<24;h++) slots.push(`${String(h).padStart(2,"0")}:00 - ${String(h+1).padStart(2,"0")}:00`);
+  }
+  return slots;
+}
+function renderSlots(){
+  selectedSlot="";
+  const box=document.getElementById("slots");
+  box.innerHTML="";
+  const date=document.getElementById("date").value;
+  getSlots().forEach(slot=>{
+    const b=document.createElement("button");
+    b.type="button"; b.className="slot"; b.textContent=slot;
+    const key=date+"|"+slot;
+    if(booked[key]){b.classList.add("booked");b.disabled=true;b.textContent+=" • Booked";}
+    else b.onclick=()=>{selectedSlot=slot;document.querySelectorAll(".slot").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");updateSummary()};
+    box.appendChild(b);
+  });
+  updateSummary();
+}
+function updateSummary(){
+  const date=document.getElementById("date").value;
+  const hours=Number(document.getElementById("hours").value);
+  const rate=document.getElementById("period").value==="day"?600:1200;
+  document.getElementById("summary").innerHTML = date && selectedSlot
+    ? `${date} • ${selectedSlot}<br>${hours} hour(s) • Total ₹${hours*rate} • Advance ₹${hours*rate/2}`
+    : "Date और slot चुनें।";
+}
+document.getElementById("date").addEventListener("change",renderSlots);
+document.getElementById("date").min=new Date().toISOString().split("T")[0];
+renderSlots();
+
+function bookNow(){
+  const name=document.getElementById("name").value.trim();
+  const phone=document.getElementById("phone").value.trim();
+  const date=document.getElementById("date").value;
+  const hours=Number(document.getElementById("hours").value);
+  const period=document.getElementById("period").value;
+  const rate=period==="day"?600:1200;
+  if(!date||!selectedSlot||!name||phone.length<10){alert("कृपया date, slot, नाम और सही mobile number भरें.");return;}
+  const total=hours*rate, advance=total/2;
+  const message=`🏏 Teliyan Cricket Box Booking%0A%0AName: ${encodeURIComponent(name)}%0AMobile: ${encodeURIComponent(phone)}%0ADate: ${encodeURIComponent(date)}%0ASlot: ${encodeURIComponent(selectedSlot)}%0AHours: ${hours}%0ATotal: ₹${total}%0A50%25 Advance: ₹${advance}%0A%0APayment QR से advance करने के बाद screenshot भेज रहा/रही हूँ.`;
+  const key=date+"|"+selectedSlot;
+  booked[key]=true;
+  localStorage.setItem("teliyan_booked",JSON.stringify(booked));
+  document.getElementById("success").style.display="block";
+  document.getElementById("success").innerHTML="Booking request तैयार है। WhatsApp खुलेगा—वहां payment screenshot भेज दें.";
+  renderSlots();
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`,"_blank");
+}
+</script>
+</body>
+</html>
