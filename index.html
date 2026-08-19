@@ -1,762 +1,584 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Teliayan Cricket Box | Premium Turf Booking</title>
-
-<style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#050807;
-  color:#fff;
-  line-height:1.6;
-}
-
-header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(5,8,7,.94);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid #24352b;
-}
-
-.nav{
-  max-width:1150px;
-  margin:auto;
-  padding:15px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.logo{
-  font-size:20px;
-  font-weight:900;
-  color:#b7ff3c;
-}
-
-.logo span{
-  display:block;
-  color:#aaa;
-  font-size:10px;
-  letter-spacing:2px;
-}
-
-nav a{
-  color:#fff;
-  text-decoration:none;
-  margin-left:22px;
-  font-size:14px;
-}
-
-.hero{
-  min-height:590px;
-  display:flex;
-  align-items:center;
-  background:
-    linear-gradient(90deg,rgba(0,0,0,.88),rgba(0,20,10,.45)),
-    url("turf-photo.jpg") center/cover;
-}
-
-.hero-inner{
-  width:100%;
-  max-width:1150px;
-  margin:auto;
-  padding:70px 20px;
-}
-
-.badge{
-  display:inline-block;
-  padding:8px 14px;
-  border:1px solid #7dbb31;
-  border-radius:30px;
-  color:#b7ff3c;
-  font-size:12px;
-  font-weight:bold;
-  letter-spacing:1px;
-  margin-bottom:18px;
-}
-
-.hero h1{
-  max-width:720px;
-  font-size:58px;
-  line-height:1.05;
-  margin-bottom:20px;
-}
-
-.hero h1 span{
-  color:#b7ff3c;
-}
-
-.hero p{
-  max-width:650px;
-  color:#ddd;
-  font-size:19px;
-  margin-bottom:30px;
-}
-
-.buttons{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
-.btn{
-  display:inline-block;
-  border:none;
-  border-radius:12px;
-  padding:15px 22px;
-  font-weight:900;
-  text-decoration:none;
-  cursor:pointer;
-  font-size:15px;
-}
-
-.primary{
-  background:#b7ff3c;
-  color:#071006;
-}
-
-.secondary{
-  background:rgba(255,255,255,.08);
-  color:#fff;
-  border:1px solid #506052;
-}
-
-.container{
-  max-width:1150px;
-  margin:auto;
-  padding:55px 20px;
-}
-
-.section-title{
-  text-align:center;
-  margin-bottom:35px;
-}
-
-.section-title h2{
-  font-size:35px;
-  margin-bottom:8px;
-}
-
-.section-title p{
-  color:#999;
-}
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-  margin-top:-45px;
-  position:relative;
-  z-index:2;
-}
-
-.stat{
-  background:#101713;
-  border:1px solid #2b3b30;
-  border-radius:18px;
-  padding:25px;
-  text-align:center;
-  box-shadow:0 15px 40px rgba(0,0,0,.3);
-}
-
-.stat strong{
-  display:block;
-  color:#b7ff3c;
-  font-size:30px;
-}
-
-.stat span{
-  color:#aaa;
-  font-size:13px;
-}
-
-.cards{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:22px;
-}
-
-.card{
-  background:linear-gradient(145deg,#111a15,#09100c);
-  border:1px solid #2a3b30;
-  border-radius:20px;
-  padding:28px;
-}
-
-.card h3{
-  font-size:23px;
-  margin-bottom:18px;
-}
-
-.price-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
-}
-
-.price{
-  padding:22px;
-  border-radius:15px;
-  background:#0d1711;
-  border:1px solid #344638;
-}
-
-.price small{
-  color:#999;
-}
-
-.price strong{
-  display:block;
-  font-size:30px;
-  color:#b7ff3c;
-  margin-top:5px;
-}
-
-.slots{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-}
-
-.slot{
-  background:#101b14;
-  border:1px solid #3c583f;
-  border-radius:14px;
-  padding:18px 10px;
-  text-align:center;
-}
-
-.slot b{
-  display:block;
-  color:#b7ff3c;
-  margin-top:5px;
-}
-
-.booking{
-  max-width:800px;
-  margin:auto;
-}
-
-label{
-  display:block;
-  margin:15px 0 7px;
-  color:#ccc;
-  font-weight:bold;
-}
-
-input,select{
-  width:100%;
-  padding:15px;
-  border-radius:11px;
-  border:1px solid #344538;
-  background:#07100b;
-  color:#fff;
-  font-size:15px;
-  outline:none;
-}
-
-input:focus,select:focus{
-  border-color:#b7ff3c;
-}
-
-.total{
-  margin-top:22px;
-  padding:20px;
-  background:#0d1911;
-  border:1px solid #41583d;
-  border-radius:15px;
-  text-align:center;
-}
-
-.total small{
-  color:#999;
-}
-
-.total strong{
-  display:block;
-  color:#b7ff3c;
-  font-size:35px;
-}
-
-.advance{
-  color:#ffd65a;
-  font-size:14px;
-  margin-top:8px;
-}
-
-.whatsapp{
-  width:100%;
-  margin-top:18px;
-  background:#25d366;
-  color:#061006;
-}
-
-.contact-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
-
-.contact{
-  text-align:center;
-  padding:25px;
-  background:#101713;
-  border:1px solid #2b3b30;
-  border-radius:18px;
-}
-
-.contact .icon{
-  font-size:30px;
-  margin-bottom:8px;
-}
-
-.contact h3{
-  margin-bottom:6px;
-}
-
-.contact p{
-  color:#aaa;
-  font-size:14px;
-}
-
-footer{
-  text-align:center;
-  padding:35px 20px;
-  background:#020403;
-  color:#777;
-  border-top:1px solid #1d2921;
-}
-
-@media(max-width:800px){
-
-  nav{
-    display:none;
-  }
-
-  .hero{
-    min-height:540px;
-  }
-
-  .hero h1{
-    font-size:42px;
-  }
-
-  .stats,
-  .cards,
-  .contact-grid{
-    grid-template-columns:1fr;
-  }
-
-  .slots{
-    grid-template-columns:1fr 1fr;
-  }
-}
-
-@media(max-width:520px){
-
-  .hero h1{
-    font-size:36px;
-  }
-
-  .hero p{
-    font-size:16px;
-  }
-
-  .price-grid{
-    grid-template-columns:1fr;
-  }
-
-  .slots{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .container{
-    padding:40px 15px;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Teliayan Cricket Box | Sujangarh</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b0f14;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      background: rgba(11,15,20,0.95);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid #27303a;
+    }
+
+    nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: #35e06f;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 14px;
+    }
+
+    .hero {
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 70px 20px;
+      background:
+        linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.88)),
+        url("teliyan_cricket_box.png") center/cover;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #163d25;
+      color: #45ed7b;
+      padding: 7px 14px;
+      border-radius: 30px;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 8vw, 76px);
+      line-height: 1.05;
+      margin-bottom: 20px;
+    }
+
+    .green {
+      color: #35e06f;
+    }
+
+    .hero p {
+      color: #d1d7dd;
+      font-size: 18px;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .buttons {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 23px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .primary {
+      background: #35e06f;
+      color: #061009;
+    }
+
+    .secondary {
+      background: transparent;
+      color: white;
+      border: 1px solid #66717c;
+    }
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 70px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #9ca6af;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: #121820;
+      border: 1px solid #27303a;
+      border-radius: 16px;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .price {
+      font-size: 35px;
+      font-weight: bold;
+      color: #35e06f;
+      margin: 10px 0;
+    }
+
+    .card p {
+      color: #aab3bc;
+    }
+
+    .booking {
+      background: #11171e;
+      border-radius: 22px;
+      border: 1px solid #27303a;
+      padding: 30px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 14px;
+      background: #080c10;
+      color: white;
+      border: 1px solid #39434d;
+      border-radius: 9px;
+      font-size: 15px;
+    }
+
+    .slots {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .slot {
+      padding: 12px 5px;
+      border-radius: 9px;
+      border: 1px solid #35e06f;
+      background: #102318;
+      color: #35e06f;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .slot.selected {
+      background: #35e06f;
+      color: #071009;
+    }
+
+    .slot.booked {
+      background: #30171a;
+      border-color: #ff4d5a;
+      color: #ff6c76;
+      cursor: not-allowed;
+      text-decoration: line-through;
+    }
+
+    .notice {
+      background: #191f26;
+      border-left: 4px solid #35e06f;
+      padding: 15px;
+      margin: 20px 0;
+      color: #cbd2d8;
+      border-radius: 5px;
+    }
+
+    .location {
+      text-align: center;
+    }
+
+    .location-box {
+      background: #121820;
+      border: 1px solid #27303a;
+      border-radius: 16px;
+      padding: 30px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #070a0d;
+      color: #8f99a3;
+      border-top: 1px solid #27303a;
+    }
+
+    @media (max-width: 650px) {
+      nav a {
+        display: none;
+      }
+
+      .hero {
+        min-height: 550px;
+      }
+
+      .booking {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-<div class="nav">
+  <nav>
+    <div class="logo">🏏 Teliayan Cricket Box</div>
 
-<div class="logo">
-TELIAYAN CRICKET BOX
-<span>PLAY • BOOK • ENJOY</span>
-</div>
-
-<nav>
-<a href="#home">Home</a>
-<a href="#rates">Rates</a>
-<a href="#booking">Booking</a>
-<a href="#contact">Contact</a>
-</nav>
-
-</div>
+    <div>
+      <a href="#pricing">Pricing</a>
+      <a href="#booking">Booking</a>
+      <a href="#location">Location</a>
+    </div>
+  </nav>
 </header>
 
-<section class="hero" id="home">
+<section class="hero">
+  <div class="hero-content">
 
-<div class="hero-inner">
+    <div class="badge">OPEN 24 HOURS • SUJANGARH</div>
 
-<div class="badge">🏏 24 HOURS OPEN • SUDHANGARH</div>
+    <h1>
+      Play Hard.<br>
+      <span class="green">Play Better.</span>
+    </h1>
 
-<h1>
-Your Game.<br>
-Your <span>Time.</span><br>
-Your Turf.
-</h1>
+    <p>
+      Sujangarh ka premium Box Cricket experience.
+      Apna slot book karo aur game start karo.
+    </p>
 
-<p>
-तेलियान क्रिकेट बॉक्स में दोस्तों के साथ क्रिकेट खेलें।
-अपना पसंदीदा स्लॉट चुनें और WhatsApp पर तुरंत booking request भेजें।
-</p>
+    <div class="buttons">
+      <a href="#booking" class="btn primary">Book Your Slot</a>
 
-<div class="buttons">
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=Teliayan+Cricket+Box+Sujangarh"
+        target="_blank"
+        class="btn secondary">
+        📍 View Location
+      </a>
+    </div>
 
-<a class="btn primary" href="#booking">
-BOOK YOUR SLOT →
-</a>
-
-<a class="btn secondary" href="https://wa.me/919587600798">
-💬 WhatsApp
-</a>
-
-</div>
-
-</div>
+  </div>
 </section>
 
-<div class="container">
+<section id="pricing">
 
-<div class="stats">
+  <div class="section-title">
+    <h2>Simple Pricing</h2>
+    <p>Choose your preferred playing time.</p>
+  </div>
 
-<div class="stat">
-<strong>24×7</strong>
-<span>OPEN ALL DAY</span>
-</div>
+  <div class="cards">
 
-<div class="stat">
-<strong>₹600</strong>
-<span>DAY / HOUR</span>
-</div>
+    <div class="card">
+      <div style="font-size:40px;">☀️</div>
+      <h3>Day Booking</h3>
+      <div class="price">₹600</div>
+      <p>Per Hour</p>
+    </div>
 
-<div class="stat">
-<strong>₹1200</strong>
-<span>NIGHT / HOUR</span>
-</div>
+    <div class="card">
+      <div style="font-size:40px;">🌙</div>
+      <h3>Night Booking</h3>
+      <div class="price">₹1200</div>
+      <p>Per Hour</p>
+    </div>
 
-</div>
+    <div class="card">
+      <div style="font-size:40px;">⏰</div>
+      <h3>Open 24 Hours</h3>
+      <div class="price">24/7</div>
+      <p>Play at your convenient time</p>
+    </div>
 
-</div>
+  </div>
 
-<section id="rates">
-
-<div class="container">
-
-<div class="section-title">
-<h2>Premium Turf Experience</h2>
-<p>Simple pricing. Easy booking.</p>
-</div>
-
-<div class="cards">
-
-<div class="card">
-
-<h3>💰 Our Rates</h3>
-
-<div class="price-grid">
-
-<div class="price">
-<small>☀️ DAY</small>
-<strong>₹600</strong>
-<span>per hour</span>
-</div>
-
-<div class="price">
-<small>🌙 NIGHT</small>
-<strong>₹1200</strong>
-<span>per hour</span>
-</div>
-
-</div>
-
-<p style="margin-top:18px;color:#aaa;">
-⏱️ 1, 2 या 3 घंटे की booking उपलब्ध
-</p>
-
-<p style="margin-top:8px;color:#ffd65a;">
-🔐 Booking confirm करने के लिए 50% advance.
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>⚡ Why Choose Us?</h3>
-
-<p>🏏 Premium Box Cricket Experience</p>
-<p>🌙 Day & Night Booking</p>
-<p>🕐 24 Hours Open</p>
-<p>📱 Easy WhatsApp Booking</p>
-<p>📍 Convenient Sujangarh Location</p>
-
-</div>
-
-</div>
-
-</div>
-</section>
-
-<section>
-
-<div class="container">
-
-<div class="section-title">
-<h2>Today's Availability</h2>
-<p>Check the available time windows</p>
-</div>
-
-<div class="slots">
-
-<div class="slot">
-6 AM – 10 AM
-<b>AVAILABLE</b>
-</div>
-
-<div class="slot">
-10 AM – 4 PM
-<b>AVAILABLE</b>
-</div>
-
-<div class="slot">
-4 PM – 10 PM
-<b>AVAILABLE</b>
-</div>
-
-<div class="slot">
-10 PM – 6 AM
-<b>AVAILABLE</b>
-</div>
-
-</div>
-
-<p style="text-align:center;color:#777;margin-top:15px;font-size:13px;">
-* Actual slot confirmation WhatsApp booking के बाद की जाएगी.
-</p>
-
-</div>
 </section>
 
 <section id="booking">
 
-<div class="container">
+  <div class="section-title">
+    <h2>Book Your Slot</h2>
+    <p>Select date and available time.</p>
+  </div>
 
-<div class="section-title">
-<h2>Book Your Slot</h2>
-<p>अपनी details भरें और WhatsApp पर booking request भेजें</p>
-</div>
+  <div class="booking">
 
-<div class="booking card">
+    <div class="form-group">
+      <label>Your Name</label>
+      <input
+        type="text"
+        id="name"
+        placeholder="Enter your name">
+    </div>
 
-<label>📅 Booking Date</label>
-<input id="date" type="date">
+    <div class="form-group">
+      <label>Mobile Number</label>
+      <input
+        type="tel"
+        id="phone"
+        placeholder="Enter mobile number"
+        maxlength="10">
+    </div>
 
-<label>⏰ Start Time</label>
-<input id="time" type="time">
+    <div class="form-group">
+      <label>Select Date</label>
+      <input
+        type="date"
+        id="date">
+    </div>
 
-<label>⏱️ कितने घंटे?</label>
+    <div class="form-group">
+      <label>Choose Time Slot</label>
 
-<select id="hours">
-<option value="1">1 घंटा</option>
-<option value="2">2 घंटे</option>
-<option value="3">3 घंटे</option>
-</select>
+      <div class="slots" id="slots">
 
-<label>👤 आपका नाम</label>
-<input id="name" type="text" placeholder="अपना नाम लिखें">
+        <div class="slot" data-time="06:00 AM - 07:00 AM">
+          06–07 AM
+        </div>
 
-<label>📱 Mobile Number</label>
-<input id="mobile" type="tel" maxlength="10" placeholder="10 digit mobile number">
+        <div class="slot" data-time="07:00 AM - 08:00 AM">
+          07–08 AM
+        </div>
 
-<div class="total">
+        <div class="slot" data-time="08:00 AM - 09:00 AM">
+          08–09 AM
+        </div>
 
-<small>TOTAL BOOKING AMOUNT</small>
+        <div class="slot" data-time="09:00 AM - 10:00 AM">
+          09–10 AM
+        </div>
 
-<strong id="total">₹600</strong>
+        <div class="slot" data-time="10:00 AM - 11:00 AM">
+          10–11 AM
+        </div>
 
-<div class="advance">
-50% Advance: <b id="advance">₹300</b>
-</div>
+        <div class="slot" data-time="04:00 PM - 05:00 PM">
+          04–05 PM
+        </div>
 
-</div>
+        <div class="slot" data-time="05:00 PM - 06:00 PM">
+          05–06 PM
+        </div>
 
-<button class="btn whatsapp" onclick="book()">
-💬 SEND BOOKING REQUEST ON WHATSAPP
-</button>
+        <div class="slot" data-time="06:00 PM - 07:00 PM">
+          06–07 PM
+        </div>
 
-</div>
+        <div class="slot" data-time="07:00 PM - 08:00 PM">
+          07–08 PM
+        </div>
 
-</div>
+        <div class="slot" data-time="08:00 PM - 09:00 PM">
+          08–09 PM
+        </div>
+
+        <div class="slot" data-time="09:00 PM - 10:00 PM">
+          09–10 PM
+        </div>
+
+        <div class="slot" data-time="10:00 PM - 11:00 PM">
+          10–11 PM
+        </div>
+
+      </div>
+    </div>
+
+    <div class="notice">
+      💳 Booking confirm karne ke liye <b>50% advance payment</b>
+      required hai.
+    </div>
+
+    <button class="btn primary" style="width:100%;" onclick="bookSlot()">
+      Confirm Booking
+    </button>
+
+  </div>
+
 </section>
 
-<section id="contact">
+<section id="location">
 
-<div class="container">
+  <div class="section-title">
+    <h2>Find Us</h2>
+    <p>Come and play at Teliayan Cricket Box.</p>
+  </div>
 
-<div class="section-title">
-<h2>Contact Us</h2>
-<p>Teliayan Cricket Box — Sujangarh</p>
-</div>
+  <div class="location-box">
 
-<div class="contact-grid">
+    <div style="font-size:45px;">📍</div>
 
-<div class="contact">
-<div class="icon">📍</div>
-<h3>Location</h3>
-<p>Jain Vishva Bharati Road,<br>Sujangarh</p>
-</div>
+    <h3>Teliayan Cricket Box</h3>
 
-<div class="contact">
-<div class="icon">📞</div>
-<h3>Call / WhatsApp</h3>
-<p>9587600798</p>
-</div>
+    <p>
+      Jain Vishva Bharati Road,<br>
+      Sujangarh, Rajasthan
+    </p>
 
-<div class="contact">
-<div class="icon">🕐</div>
-<h3>Opening Hours</h3>
-<p>Open 24 Hours<br>Every Day</p>
-</div>
+    <br>
 
-</div>
+    <a
+      href="https://www.google.com/maps/search/?api=1&query=Teliayan+Cricket+Box+Sujangarh"
+      target="_blank"
+      class="btn primary">
+      Open Google Maps
+    </a>
 
-<div style="text-align:center;margin-top:30px;">
+  </div>
 
-<a class="btn primary" href="https://wa.me/919587600798">
-💬 BOOK VIA WHATSAPP
-</a>
-
-</div>
-
-</div>
 </section>
 
 <footer>
-© 2026 Teliayan Cricket Box • 24 Hours Open • Sujangarh 
+
+  <strong>Teliayan Cricket Box</strong>
+
+  <br>
+
+  © 2026 All Rights Reserved.
+
 </footer>
 
 <script>
 
-const date=document.getElementById("date");
-const time=document.getElementById("time");
-const hours=document.getElementById("hours");
-const total=document.getElementById("total");
-const advance=document.getElementById("advance");
+  let selectedSlot = "";
 
-date.valueAsDate=new Date();
+  // आज से पहले की date select नहीं होगी
+  const dateInput = document.getElementById("date");
 
-function calculate(){
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, "0");
+  const dd = String(today.getDate()).padStart(2, "0");
 
-let h=Number(hours.value);
-let day=true;
+  dateInput.min = `${yyyy}-${mm}-${dd}`;
 
-if(time.value){
 
-let hour=Number(time.value.split(":")[0]);
+  // Slot selection
+  document.querySelectorAll(".slot").forEach(slot => {
 
-day=hour>=6 && hour<18;
+    slot.addEventListener("click", function() {
 
-}
+      if (this.classList.contains("booked")) {
+        return;
+      }
 
-let rate=day ? 600 : 1200;
-let amount=rate*h;
+      document.querySelectorAll(".slot").forEach(s => {
+        s.classList.remove("selected");
+      });
 
-total.textContent="₹"+amount.toLocaleString("en-IN");
+      this.classList.add("selected");
 
-advance.textContent="₹"+(amount/2).toLocaleString("en-IN");
+      selectedSlot = this.dataset.time;
 
-}
+    });
 
-time.addEventListener("change",calculate);
-hours.addEventListener("change",calculate);
+  });
 
-function book(){
 
-let name=document.getElementById("name").value.trim();
-let mobile=document.getElementById("mobile").value.trim();
+  function bookSlot() {
 
-if(!name){
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const date = document.getElementById("date").value;
 
-alert("कृपया अपना नाम भरें।");
-return;
+    if (!name) {
+      alert("Please enter your name.");
+      return;
+    }
 
-}
+    if (!phone || phone.length !== 10) {
+      alert("Please enter a valid 10 digit mobile number.");
+      return;
+    }
 
-if(!/^\d{10}$/.test(mobile)){
+    if (!date) {
+      alert("Please select booking date.");
+      return;
+    }
 
-alert("कृपया सही 10 digit mobile number भरें।");
-return;
+    if (!selectedSlot) {
+      alert("Please select a time slot.");
+      return;
+    }
 
-}
+    const message =
+      "🏏 Teliayan Cricket Box Booking%0A%0A" +
+      "Name: " + encodeURIComponent(name) + "%0A" +
+      "Mobile: " + encodeURIComponent(phone) + "%0A" +
+      "Date: " + encodeURIComponent(date) + "%0A" +
+      "Time: " + encodeURIComponent(selectedSlot) + "%0A%0A" +
+      "I want to confirm this booking.";
 
-if(!date.value || !time.value){
+    /*
+      IMPORTANT:
+      नीचे अपना actual WhatsApp number डालना है.
+      Example:
+      919876543210
+    */
 
-alert("कृपया Date और Start Time चुनें।");
-return;
+    const whatsappNumber = "91XXXXXXXXXX";
 
-}
+    window.open(
+      "https://wa.me/" + whatsappNumber + "?text=" + message,
+      "_blank"
+    );
 
-calculate();
-
-let h=Number(hours.value);
-
-let hour=Number(time.value.split(":")[0]);
-
-let rate=(hour>=6 && hour<18) ? 600 : 1200;
-
-let amount=rate*h;
-
-let advanceAmount=amount/2;
-
-let message=
-"🏏 *Teliayan Cricket Box - Booking Request*%0A%0A"+
-"👤 Name: "+name+"%0A"+
-"📱 Mobile: "+mobile+"%0A"+
-"📅 Date: "+date.value+"%0A"+
-"⏰ Start Time: "+time.value+"%0A"+
-"⏱️ Hours: "+h+"%0A"+
-"💰 Total: ₹"+amount+"%0A"+
-"🔐 50% Advance: ₹"+advanceAmount+"%0A%0A"+
-"Please confirm my slot.";
-
-window.open(
-"https://wa.me/919587600798?text="+message,
-"_blank"
-);
-
-}
-
-calculate();
+  }
 
 </script>
 
 </body>
-</html>
+        </html>
