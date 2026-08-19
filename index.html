@@ -293,3 +293,72 @@ ROSHAN ALI PARIHAR<br>
 UPI ID: 9587600798@naviaxis
 </span>
 </div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  // WhatsApp button
+  const whatsapp = document.querySelector(".whatsapp");
+
+  if (whatsapp) {
+    whatsapp.style.cursor = "pointer";
+
+    whatsapp.addEventListener("click", function () {
+      const msg =
+        "Hello Teliyan Cricket Box 👋%0A" +
+        "I want to book a cricket box slot.%0A%0A" +
+        "Please share available slots.";
+
+      window.open(
+        "https://wa.me/919587600798?text=" + msg,
+        "_blank"
+      );
+    });
+  }
+
+  // Proceed to Payment button
+  const proceed = document.querySelector(".btn");
+
+  if (proceed) {
+    proceed.addEventListener("click", function () {
+
+      const name = document.getElementById("name")?.value || "";
+      const phone = document.getElementById("phone")?.value || "";
+      const date = document.getElementById("date")?.value || "";
+      const slot = document.getElementById("slot")?.value || "";
+      const duration = document.getElementById("duration")?.value || "1";
+
+      if (!name || !phone || !date || !slot) {
+        alert("Please fill Name, Phone, Date and Time Slot.");
+        return;
+      }
+
+      const bookingType =
+        document.getElementById("dayBtn")?.classList.contains("active")
+        ? "DAY"
+        : "NIGHT";
+
+      const price = bookingType === "DAY" ? 600 : 1200;
+      const total = price * Number(duration);
+      const advance = total / 2;
+
+      const message =
+        "🏏 TELIYAN CRICKET BOX - BOOKING REQUEST%0A%0A" +
+        "👤 Name: " + encodeURIComponent(name) + "%0A" +
+        "📱 Phone: " + encodeURIComponent(phone) + "%0A" +
+        "📅 Date: " + encodeURIComponent(date) + "%0A" +
+        "⏰ Slot: " + encodeURIComponent(slot) + "%0A" +
+        "⏱️ Duration: " + encodeURIComponent(duration) + " Hour(s)%0A" +
+        "🌙 Type: " + bookingType + "%0A" +
+        "💰 Total: ₹" + total + "%0A" +
+        "💳 Advance (50%): ₹" + advance + "%0A%0A" +
+        "I will complete the advance payment.";
+
+      window.open(
+        "https://wa.me/919587600798?text=" + message,
+        "_blank"
+      );
+    });
+  }
+
+});
+        </script>
