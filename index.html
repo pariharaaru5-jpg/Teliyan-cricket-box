@@ -165,9 +165,7 @@ font-size:18px;
 margin-top:4px
 }
 
-.primary,
-.secondary,
-.paid-btn{
+.primary,.secondary,.paid-btn{
 width:100%;
 border:0;
 border-radius:12px;
@@ -178,20 +176,9 @@ cursor:pointer;
 margin-top:18px
 }
 
-.primary{
-background:#18b84f;
-color:#fff
-}
-
-.secondary{
-background:#0b6b2e;
-color:#fff
-}
-
-.paid-btn{
-background:#0d8a3a;
-color:#fff
-}
+.primary{background:#18b84f;color:#fff}
+.secondary{background:#0b6b2e;color:#fff}
+.paid-btn{background:#0d8a3a;color:#fff}
 
 .paid-btn:disabled{
 background:#9ba7a0;
@@ -218,6 +205,11 @@ color:#815900
 .notice.success{
 background:#eaf9ef;
 color:#137333
+}
+
+.notice.error{
+background:#ffe8e8;
+color:#b42318
 }
 
 .payment-box{
@@ -262,8 +254,10 @@ border-color:#ffb3b3;
 color:#b42318
 }
 
-.slot.selected{
-outline:3px solid #35df72
+.slot.loading{
+background:#f1f1f1;
+color:#666;
+border-color:#ddd
 }
 
 footer{
@@ -275,26 +269,15 @@ margin-top:35px
 }
 
 @media(max-width:650px){
-.grid,
-.type-row{
-grid-template-columns:1fr
-}
+.grid,.type-row{grid-template-columns:1fr}
 
-.slot-grid{
-grid-template-columns:repeat(2,1fr)
-}
+.slot-grid{grid-template-columns:repeat(2,1fr)}
 
-.hero h2{
-font-size:37px
-}
+.hero h2{font-size:37px}
 
-.brand h1{
-font-size:20px
-}
+.brand h1{font-size:20px}
 
-.card{
-padding:18px
-}
+.card{padding:18px}
 }
 </style>
 </head>
@@ -302,16 +285,12 @@ padding:18px
 <body>
 
 <header>
-
 <div class="brand">
-
 <div>
 <h1>🏏 Teliayan Cricket Box</h1>
 <small>Premium Box Cricket • Sujangarh</small>
 </div>
-
 <div>🟢 24 HOURS</div>
-
 </div>
 
 <nav>
@@ -320,12 +299,9 @@ padding:18px
 <a href="#rates">RATES</a>
 <a href="#rules">RULES</a>
 </nav>
-
 </header>
 
-
 <section class="hero" id="home">
-
 <h2>
 Play Hard.<br>
 <span>Play Better.</span>
@@ -335,12 +311,9 @@ Play Hard.<br>
 Sujangarh ka premium Box Cricket experience.
 Apna slot book karo aur game start karo.
 </p>
-
 </section>
 
-
 <main class="container">
-
 
 <section class="card" id="book">
 
@@ -348,89 +321,53 @@ Apna slot book karo aur game start karo.
 📅 <span>BOOK YOUR SLOT</span>
 </h2>
 
-
 <div class="grid">
 
 <div>
-
 <label>Select Date</label>
-
-<input
-id="date"
-type="date"
->
-
+<input id="date" type="date">
 </div>
 
-
 <div>
-
 <label>Start Time Slot</label>
 
 <select id="slot">
-
-<option value="">
--- Select Time Slot --
-</option>
-
+<option value="">-- Select Time Slot --</option>
 </select>
-
 </div>
 
 </div>
-
-
 
 <div class="grid">
 
 <div>
-
 <label>Duration</label>
 
 <select id="duration">
-
 <option value="1">1 Hour</option>
-
 <option value="2">2 Hours</option>
-
 <option value="3">3 Hours</option>
-
 <option value="4">4 Hours</option>
-
 </select>
-
 </div>
 
-
 <div>
-
 <label>Booking Type</label>
 
 <div class="type-row">
 
-<button
-type="button"
-id="dayBtn"
-class="type-btn active"
->
+<button type="button" id="dayBtn" class="type-btn active">
 ☀️ DAY ₹600/hr
 </button>
 
-<button
-type="button"
-id="nightBtn"
-class="type-btn"
->
+<button type="button" id="nightBtn" class="type-btn">
 🌙 NIGHT ₹1200/hr
 </button>
 
 </div>
-
 </div>
 
 </div>
-
-
 
 <div class="slot-status">
 
@@ -442,39 +379,26 @@ Slot Status
 🟢 AVAILABLE &nbsp;&nbsp; 🔴 BOOKED
 </div>
 
-<div
-id="slotGrid"
-class="slot-grid"
->
-</div>
+<div id="slotGrid" class="slot-grid"></div>
 
 </div>
-
-
 
 <div class="total">
 
 <div>Total Amount</div>
 
-<strong id="total">
-₹600
-</strong>
+<strong id="total">₹600</strong>
 
 <div class="advance">
 50% Advance:
-<b id="advance">
-₹300
-</b>
+<b id="advance">₹300</b>
 </div>
 
 </div>
-
-
 
 <div class="grid">
 
 <div>
-
 <label>Your Name</label>
 
 <input
@@ -482,12 +406,9 @@ id="name"
 type="text"
 placeholder="Enter your name"
 >
-
 </div>
 
-
 <div>
-
 <label>WhatsApp Number</label>
 
 <input
@@ -497,12 +418,9 @@ inputmode="numeric"
 maxlength="10"
 placeholder="10 digit mobile number"
 >
-
 </div>
 
 </div>
-
-
 
 <label>Team / Group Name</label>
 
@@ -512,8 +430,6 @@ type="text"
 placeholder="Example: Friends Cricket Team"
 >
 
-
-
 <button
 type="button"
 class="primary"
@@ -522,16 +438,11 @@ id="payBtn"
 💳 PROCEED TO PAYMENT
 </button>
 
-
-
-<div
-id="paymentBox"
-class="payment-box"
->
+<div id="paymentBox" class="payment-box">
 
 <div class="notice info">
 
-Step 1:
+Step 1:<br>
 50% advance payment UPI se karein.
 
 <br><br>
@@ -547,8 +458,6 @@ Payee: ROSHAN ALI PARIHAR
 
 </div>
 
-
-
 <button
 type="button"
 class="secondary"
@@ -557,16 +466,12 @@ id="upiBtn"
 📲 PAY ADVANCE USING UPI APP
 </button>
 
-
-
 <div class="notice warn">
 
 Payment complete karne ke baad
 neeche wala button dabayein.
 
 </div>
-
-
 
 <button
 type="button"
@@ -576,24 +481,18 @@ id="paidBtn"
 ✅ I HAVE COMPLETED PAYMENT
 </button>
 
-
-
 <div
 id="paidMessage"
 class="notice success"
 style="display:none"
 >
-
 Booking saved successfully.
 WhatsApp khola ja raha hai…
-
 </div>
 
 </div>
 
 </section>
-
-
 
 <section class="card" id="rates">
 
@@ -601,15 +500,8 @@ WhatsApp khola ja raha hai…
 ₹ <span>OUR RATES</span>
 </h2>
 
-<p>
-☀️ Day:
-<b>₹600 / hour</b>
-</p>
-
-<p>
-🌙 Night:
-<b>₹1200 / hour</b>
-</p>
+<p>☀️ Day: <b>₹600 / hour</b></p>
+<p>🌙 Night: <b>₹1200 / hour</b></p>
 
 <div class="notice info">
 Booking ke liye 50% advance required hai.
@@ -617,42 +509,24 @@ Booking ke liye 50% advance required hai.
 
 </section>
 
-
-
 <section class="card" id="rules">
 
 <h2 class="title">
 ⚑ <span>BOOKING RULES</span>
 </h2>
 
-<p>
-1️⃣ Date, slot aur duration select karein.
-</p>
-
-<p>
-2️⃣ 50% advance UPI se pay karein.
-</p>
-
-<p>
-3️⃣ Payment ke baad WhatsApp confirmation bhejein.
-</p>
-
-<p>
-4️⃣ Booked slot dobara select nahi kiya ja sakta.
-</p>
+<p>1️⃣ Date, slot aur duration select karein.</p>
+<p>2️⃣ 50% advance UPI se pay karein.</p>
+<p>3️⃣ Payment ke baad WhatsApp confirmation bhejein.</p>
+<p>4️⃣ Booked slot dobara select nahi kiya ja sakta.</p>
 
 </section>
 
-
 </main>
-
-
 
 <footer>
 
-<b>
-🏏 Teliayan Cricket Box
-</b>
+<b>🏏 Teliayan Cricket Box</b>
 
 <br>
 
@@ -660,14 +534,26 @@ Jain Vishva Bharati Road, Sujangarh
 
 <br>
 
-WhatsApp:
-9587600798
+WhatsApp: 9587600798
 
 </footer>
 
-
-
 <script>
+
+/* ================================
+   SUPABASE CONNECTION
+================================ */
+
+const SUPABASE_URL =
+"https://mmfflwbsfsrsjfhcupyh.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_A3XcvLOKgUOL9ojKHWxVxw_Zfbf1N_k";
+
+
+/* ================================
+   BUSINESS SETTINGS
+================================ */
 
 const UPI_ID =
 "9587600798@naviaxis";
@@ -679,12 +565,14 @@ const WHATSAPP =
 "919587600798";
 
 
-let bookingType =
-"DAY";
+let bookingType = "DAY";
+let rate = 600;
+let currentBookings = [];
 
-let rate =
-600;
 
+/* ================================
+   ELEMENTS
+================================ */
 
 const dateEl =
 document.getElementById("date");
@@ -704,11 +592,35 @@ document.getElementById("advance");
 const slotGrid =
 document.getElementById("slotGrid");
 
+const dayBtn =
+document.getElementById("dayBtn");
+
+const nightBtn =
+document.getElementById("nightBtn");
+
+const payBtn =
+document.getElementById("payBtn");
+
+const paymentBox =
+document.getElementById("paymentBox");
+
+const upiBtn =
+document.getElementById("upiBtn");
+
+const paidBtn =
+document.getElementById("paidBtn");
+
+const paidMessage =
+document.getElementById("paidMessage");
+
+
+/* ================================
+   TODAY
+================================ */
 
 function today(){
 
-const d =
-new Date();
+const d = new Date();
 
 return d.getFullYear()
 +
@@ -722,104 +634,178 @@ String(d.getDate()).padStart(2,"0");
 
 }
 
-
-dateEl.min =
-today();
-
-dateEl.value =
-today();
+dateEl.min = today();
+dateEl.value = today();
 
 
+/* ================================
+   SUPABASE REQUEST
+================================ */
 
-function storageKey(){
+async function supabaseRequest(
+method,
+endpoint,
+body = null
+){
 
-return
-"teliayan_bookings_"
-+
-dateEl.value;
+const options = {
+
+method: method,
+
+headers: {
+
+"apikey": SUPABASE_KEY,
+
+"Authorization":
+"Bearer " + SUPABASE_KEY,
+
+"Content-Type":
+"application/json",
+
+"Prefer":
+"return=representation"
+
+}
+
+};
+
+if(body){
+
+options.body =
+JSON.stringify(body);
+
+}
+
+const response =
+await fetch(
+SUPABASE_URL +
+"/rest/v1/" +
+endpoint,
+options
+);
+
+const text =
+await response.text();
+
+if(!response.ok){
+
+throw new Error(text);
+
+}
+
+return text
+? JSON.parse(text)
+: [];
 
 }
 
 
+/* ================================
+   LOAD BOOKINGS FROM SUPABASE
+================================ */
 
-function getBookings(){
+async function loadBookings(){
+
+slotGrid.innerHTML =
+'<div class="slot loading">⏳ Loading...</div>';
 
 try{
 
-return JSON.parse(
-localStorage.getItem(storageKey())
-|| "[]"
+const date =
+dateEl.value;
+
+const data =
+await supabaseRequest(
+"GET",
+"bookings?select=booking_date,start_time,end_time,status&booking_date=eq."
++
+encodeURIComponent(date)
++
+"&status=eq.confirmed&order=start_time.asc"
 );
 
-}catch(e){
+currentBookings = data || [];
 
-return [];
+renderSlots();
+
+}catch(error){
+
+console.error(error);
+
+slotGrid.innerHTML =
+'<div class="notice error">Database connection error. Please refresh.</div>';
 
 }
 
 }
 
 
+/* ================================
+   TIME HELPERS
+================================ */
 
-function saveBookings(data){
+function timeToHour(time){
 
-localStorage.setItem(
-storageKey(),
-JSON.stringify(data)
+return Number(
+String(time).substring(0,2)
 );
 
 }
 
 
+function overlap(start,hours,booking){
 
-function overlap(a,b){
+const bookingStart =
+timeToHour(
+booking.start_time
+);
+
+const bookingEnd =
+timeToHour(
+booking.end_time
+);
+
+const end =
+start + hours;
 
 return (
-a.start < b.start + b.hours
+start < bookingEnd
 &&
-b.start < a.start + a.hours
+bookingStart < end
 );
 
 }
-
 
 
 function isBooked(start,hours){
 
-const bookings =
-getBookings();
-
-return bookings.some(
-b =>
+return currentBookings.some(
+booking =>
 overlap(
-{
-start:start,
-hours:hours
-},
-b
+start,
+hours,
+booking
 )
 );
 
 }
 
 
+/* ================================
+   CREATE TIME OPTIONS
+================================ */
 
 function createSlots(){
 
 slotEl.innerHTML =
 '<option value="">-- Select Time Slot --</option>';
 
-for(
-let h=0;
-h<24;
-h++
-){
+for(let h=0; h<24; h++){
 
 const option =
 document.createElement("option");
 
-option.value =
-h;
+option.value = h;
 
 option.textContent =
 String(h).padStart(2,"0")
@@ -834,11 +820,12 @@ slotEl.appendChild(option);
 
 }
 
-renderSlots();
-
 }
 
 
+/* ================================
+   RENDER SLOT STATUS
+================================ */
 
 function renderSlots(){
 
@@ -847,11 +834,7 @@ slotGrid.innerHTML = "";
 const duration =
 Number(durationEl.value);
 
-for(
-let h=0;
-h<24;
-h++
-){
+for(let h=0; h<24; h++){
 
 const booked =
 isBooked(h,1);
@@ -869,17 +852,20 @@ String(h).padStart(2,"0")
 +
 ":00 "
 +
-(booked ? "🔴 BOOKED" : "🟢 FREE");
+(booked
+? "🔴 BOOKED"
+: "🟢 FREE");
 
 slotGrid.appendChild(div);
 
 }
 
 
+/* Disable unavailable starting times */
+
 Array.from(
 slotEl.options
-).forEach(
-option => {
+).forEach(option => {
 
 if(option.value !== ""){
 
@@ -887,7 +873,9 @@ option.disabled =
 isBooked(
 Number(option.value),
 duration
-);
+)
+||
+Number(option.value) + duration > 24;
 
 }
 
@@ -896,6 +884,9 @@ duration
 }
 
 
+/* ================================
+   TOTAL
+================================ */
 
 function updateTotal(){
 
@@ -916,26 +907,36 @@ renderSlots();
 }
 
 
+/* ================================
+   INITIAL
+================================ */
 
 createSlots();
 
 updateTotal();
 
+loadBookings();
 
+
+/* ================================
+   DATE CHANGE
+================================ */
 
 dateEl.addEventListener(
 "change",
-function(){
+async function(){
 
-slotEl.value =
-"";
+slotEl.value = "";
 
-renderSlots();
+await loadBookings();
 
 }
 );
 
 
+/* ================================
+   DURATION CHANGE
+================================ */
 
 durationEl.addEventListener(
 "change",
@@ -943,16 +944,17 @@ updateTotal
 );
 
 
+/* ================================
+   DAY / NIGHT
+================================ */
 
 dayBtn.addEventListener(
 "click",
 function(){
 
-bookingType =
-"DAY";
+bookingType = "DAY";
 
-rate =
-600;
+rate = 600;
 
 dayBtn.classList.add("active");
 
@@ -964,16 +966,13 @@ updateTotal();
 );
 
 
-
 nightBtn.addEventListener(
 "click",
 function(){
 
-bookingType =
-"NIGHT";
+bookingType = "NIGHT";
 
-rate =
-1200;
+rate = 1200;
 
 nightBtn.classList.add("active");
 
@@ -985,6 +984,9 @@ updateTotal();
 );
 
 
+/* ================================
+   GET FORM DATA
+================================ */
 
 function getBookingData(){
 
@@ -1008,12 +1010,9 @@ Number(durationEl.value);
 
 
 if(
-!dateEl.value
-||
-slotEl.value === ""
-||
-!name
-||
+!dateEl.value ||
+slotEl.value === "" ||
+!name ||
 !team
 ){
 
@@ -1024,7 +1023,6 @@ alert(
 return null;
 
 }
-
 
 
 if(
@@ -1040,7 +1038,6 @@ return null;
 }
 
 
-
 if(
 start + hours > 24
 ){
@@ -1054,7 +1051,6 @@ return null;
 }
 
 
-
 if(
 isBooked(start,hours)
 ){
@@ -1063,12 +1059,11 @@ alert(
 "🔴 Ye slot already BOOKED hai."
 );
 
-renderSlots();
+loadBookings();
 
 return null;
 
 }
-
 
 
 const total =
@@ -1077,22 +1072,14 @@ rate * hours;
 
 return {
 
-name:name,
-
-phone:phone,
-
-team:team,
-
+name,
+phone,
+team,
 date:dateEl.value,
-
-start:start,
-
-hours:hours,
-
-total:total,
-
+start,
+hours,
+total,
 advance:total/2,
-
 type:bookingType
 
 };
@@ -1100,6 +1087,9 @@ type:bookingType
 }
 
 
+/* ================================
+   PAYMENT BUTTON
+================================ */
 
 payBtn.addEventListener(
 "click",
@@ -1108,14 +1098,12 @@ function(){
 const data =
 getBookingData();
 
-if(!data)
-return;
+if(!data) return;
 
 
 paymentBox.classList.add(
 "show"
 );
-
 
 paymentBox.scrollIntoView({
 behavior:"smooth"
@@ -1150,73 +1138,102 @@ upi;
 });
 
 
+/* ================================
+   SAVE BOOKING TO SUPABASE
+================================ */
 
 paidBtn.addEventListener(
 "click",
-function(){
+async function(){
 
 const data =
 getBookingData();
 
-if(!data)
-return;
+if(!data) return;
 
 
-const bookings =
-getBookings();
+paidBtn.disabled = true;
+
+paidBtn.textContent =
+"⏳ SAVING BOOKING...";
 
 
-if(
-bookings.some(
-b =>
-overlap(data,b)
-)
-){
+try{
 
-alert(
-"🔴 Ye slot kisi aur ne book kar diya."
+/*
+IMPORTANT:
+Database has these columns:
+booking_date
+start_time
+end_time
+customer_name
+customer_phone
+status
+
+Team is NOT inserted because
+your current table doesn't have
+a team column.
+*/
+
+
+const startTime =
+String(data.start)
+.padStart(2,"0")
++
+":00:00";
+
+
+const endHour =
+data.start + data.hours;
+
+
+const endTime =
+String(endHour % 24)
+.padStart(2,"0")
++
+":00:00";
+
+
+const booking = {
+
+booking_date:data.date,
+
+start_time:startTime,
+
+end_time:endTime,
+
+customer_name:data.name,
+
+customer_phone:data.phone,
+
+status:"confirmed"
+
+};
+
+
+/* Save directly to Supabase */
+
+await supabaseRequest(
+"POST",
+"bookings",
+booking
 );
 
-renderSlots();
 
-return;
+/* Reload database */
 
-}
-
-
-
-bookings.push({
-
-start:data.start,
-
-hours:data.hours,
-
-name:data.name,
-
-phone:data.phone,
-
-team:data.team,
-
-savedAt:
-new Date().toISOString()
-
-});
-
-
-saveBookings(bookings);
-
-
-renderSlots();
-
-
-paidBtn.disabled =
-true;
+await loadBookings();
 
 
 paidMessage.style.display =
 "block";
 
 
+paidMessage.textContent =
+"✅ Booking saved successfully. WhatsApp khola ja raha hai…";
+
+
+/* WhatsApp message */
 
 const message =
 
@@ -1281,7 +1298,6 @@ data.advance
 "\nPlease confirm my slot.";
 
 
-
 setTimeout(
 function(){
 
@@ -1297,8 +1313,46 @@ encodeURIComponent(message),
 );
 
 },
-500
+700
 );
+
+
+}catch(error){
+
+console.error(error);
+
+paidBtn.disabled = false;
+
+paidBtn.textContent =
+"✅ I HAVE COMPLETED PAYMENT";
+
+
+/*
+If another customer booked
+the slot first, Supabase unique
+constraint will stop this booking.
+*/
+
+if(
+String(error.message)
+.includes("unique_booking_slot")
+){
+
+alert(
+"🔴 Ye slot abhi kisi aur ne book kar diya hai. Please doosra slot select karein."
+);
+
+await loadBookings();
+
+}else{
+
+alert(
+"❌ Booking save nahi hui. Please dobara try karein."
+);
+
+}
+
+}
 
 });
 
