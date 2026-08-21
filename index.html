@@ -2,281 +2,60 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Teliayan Cricket Box | Book Your Slot</title>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-
-body{
-font-family:Arial,Helvetica,sans-serif;
-background:#f4f7f5;
-color:#151a18;
-line-height:1.5
-}
-
-header{
-background:#07110c;
-color:#fff;
-padding:18px 16px;
-position:sticky;
-top:0;
-z-index:20;
-box-shadow:0 3px 15px #0003
-}
-
-.brand{
-max-width:1000px;
-margin:auto;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:12px
-}
-
-.brand h1{
-font-size:24px;
-color:#35df72
-}
-
+body{font-family:Arial,sans-serif;background:#f4f7f5;color:#151a18;line-height:1.5}
+header{background:#07110c;color:white;padding:18px 16px;position:sticky;top:0;z-index:20}
+.brand{max-width:1000px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand h1{font-size:24px;color:#35df72}
 .brand small{color:#c9d2cd}
-
-nav{
-max-width:1000px;
-margin:12px auto 0;
-display:flex;
-gap:8px;
-overflow:auto
-}
-
-nav a{
-color:#fff;
-text-decoration:none;
-padding:10px 13px;
-border-radius:10px;
-white-space:nowrap;
-font-weight:700
-}
-
+nav{max-width:1000px;margin:12px auto 0;display:flex;gap:8px;overflow:auto}
+nav a{color:white;text-decoration:none;padding:9px 12px;border-radius:9px;white-space:nowrap;font-weight:bold}
 nav a:hover{background:#153a24}
-
-.hero{
-background:linear-gradient(135deg,#07110c,#103d22);
-color:#fff;
-padding:55px 18px;
-text-align:center
-}
-
-.hero h2{
-font-size:44px;
-line-height:1.05;
-margin-bottom:15px
-}
-
+.hero{background:linear-gradient(135deg,#07110c,#103d22);color:white;padding:50px 18px;text-align:center}
+.hero h2{font-size:42px;line-height:1.1;margin-bottom:14px}
 .hero h2 span{color:#35df72}
-
-.hero p{
-max-width:650px;
-margin:auto;
-color:#d7e0db;
-font-size:18px
-}
-
-.container{
-max-width:900px;
-margin:25px auto;
-padding:0 15px
-}
-
-.card{
-background:#fff;
-border-radius:20px;
-padding:25px;
-box-shadow:0 7px 25px #00000012;
-margin-bottom:22px
-}
-
-.title{
-font-size:28px;
-margin-bottom:18px
-}
-
+.hero p{max-width:650px;margin:auto;color:#d7e0db;font-size:18px}
+.container{max-width:900px;margin:25px auto;padding:0 15px}
+.card{background:white;border-radius:20px;padding:24px;box-shadow:0 7px 25px #0001;margin-bottom:22px}
+.title{font-size:27px;margin-bottom:18px}
 .title span{color:#159447}
-
-.grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:15px
-}
-
-label{
-display:block;
-font-weight:700;
-margin:12px 0 7px
-}
-
-input,select{
-width:100%;
-padding:14px;
-border:1px solid #ccd4cf;
-border-radius:11px;
-font-size:16px;
-background:#fff
-}
-
-.type-row{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-margin-top:8px
-}
-
-.type-btn{
-border:1px solid #bfc9c3;
-background:#fff;
-padding:15px;
-border-radius:11px;
-font-weight:800;
-font-size:16px;
-cursor:pointer
-}
-
-.type-btn.active{
-background:#138a39;
-color:#fff;
-border-color:#138a39
-}
-
-.total{
-margin-top:18px;
-background:#effaf2;
-border:1px solid #bcebc9;
-border-radius:14px;
-padding:17px
-}
-
-.total strong{
-font-size:30px;
-color:#148b3c
-}
-
-.advance{
-font-size:18px;
-margin-top:4px
-}
-
-.primary,.secondary,.paid-btn{
-width:100%;
-border:0;
-border-radius:12px;
-padding:16px;
-font-size:18px;
-font-weight:800;
-cursor:pointer;
-margin-top:18px
-}
-
-.primary{background:#18b84f;color:#fff}
-.secondary{background:#0b6b2e;color:#fff}
-.paid-btn{background:#0d8a3a;color:#fff}
-
-.paid-btn:disabled{
-background:#9ba7a0;
-cursor:not-allowed
-}
-
-.notice{
-padding:13px 15px;
-border-radius:11px;
-margin-top:14px;
-font-weight:700
-}
-
-.notice.info{
-background:#eef5ff;
-color:#174a86
-}
-
-.notice.warn{
-background:#fff6df;
-color:#815900
-}
-
-.notice.success{
-background:#eaf9ef;
-color:#137333
-}
-
-.notice.error{
-background:#ffe8e8;
-color:#b42318
-}
-
-.payment-box{
-display:none;
-margin-top:20px;
-border-top:1px solid #e1e7e3;
-padding-top:20px
-}
-
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+label{display:block;font-weight:bold;margin:12px 0 7px}
+input,select{width:100%;padding:14px;border:1px solid #ccd4cf;border-radius:11px;font-size:16px;background:white}
+.type-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.type-btn{border:1px solid #bfc9c3;background:white;padding:14px;border-radius:11px;font-weight:800;font-size:16px;cursor:pointer}
+.type-btn.active{background:#138a39;color:white;border-color:#138a39}
+.total{margin-top:18px;background:#effaf2;border:1px solid #bcebc9;border-radius:14px;padding:17px}
+.total strong{font-size:30px;color:#148b3c}
+.advance{font-size:18px;margin-top:4px}
+.primary,.secondary,.paid-btn{width:100%;border:0;border-radius:12px;padding:16px;font-size:18px;font-weight:800;cursor:pointer;margin-top:18px}
+.primary{background:#18b84f;color:white}
+.secondary{background:#0b6b2e;color:white}
+.paid-btn{background:#0d8a3a;color:white}
+.paid-btn:disabled{background:#9ba7a0}
+.notice{padding:13px 15px;border-radius:11px;margin-top:14px;font-weight:bold}
+.info{background:#eef5ff;color:#174a86}
+.warn{background:#fff6df;color:#815900}
+.success{background:#eaf9ef;color:#137333}
+.error{background:#ffe8e8;color:#b42318}
+.payment-box{display:none;margin-top:20px;border-top:1px solid #e1e7e3;padding-top:20px}
 .payment-box.show{display:block}
-
-.slot-status{
-margin-top:20px
-}
-
-.slot-status-title{
-font-size:20px;
-font-weight:800;
-margin-bottom:10px
-}
-
-.slot-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:9px
-}
-
-.slot{
-padding:12px 6px;
-border-radius:10px;
-text-align:center;
-font-size:13px;
-font-weight:800;
-border:1px solid #bcebc9;
-background:#eaf9ef;
-color:#137333
-}
-
-.slot.booked{
-background:#ffe8e8;
-border-color:#ffb3b3;
-color:#b42318
-}
-
-.slot.loading{
-background:#f1f1f1;
-color:#666;
-border-color:#ddd
-}
-
-footer{
-background:#07110c;
-color:#d5ddd8;
-text-align:center;
-padding:25px;
-margin-top:35px
-}
-
+.slot-status{margin-top:20px}
+.slot-status-title{font-size:20px;font-weight:800;margin-bottom:10px}
+.slot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.slot{padding:12px 6px;border-radius:10px;text-align:center;font-size:13px;font-weight:800;border:1px solid #bcebc9;background:#eaf9ef;color:#137333}
+.slot.booked{background:#ffe8e8;border-color:#ffb3b3;color:#b42318}
+.slot.loading{background:#f1f1f1;color:#666;border-color:#ddd}
+footer{background:#07110c;color:#d5ddd8;text-align:center;padding:25px;margin-top:35px}
 @media(max-width:650px){
 .grid,.type-row{grid-template-columns:1fr}
-
 .slot-grid{grid-template-columns:repeat(2,1fr)}
-
-.hero h2{font-size:37px}
-
+.hero h2{font-size:36px}
 .brand h1{font-size:20px}
-
 .card{padding:18px}
 }
 </style>
@@ -287,4 +66,488 @@ margin-top:35px
 <header>
 <div class="brand">
 <div>
-<h1>🏏 Teliayan Cricket Box</h
+<h1>🏏 Teliayan Cricket Box</h1>
+<small>Premium Box Cricket • Sujangarh</small>
+</div>
+<div>🟢 24 HOURS</div>
+</div>
+
+<nav>
+<a href="#home">HOME</a>
+<a href="#book">BOOK SLOT</a>
+<a href="#rates">RATES</a>
+<a href="#rules">RULES</a>
+</nav>
+</header>
+
+<section class="hero" id="home">
+<h2>Play Hard.<br><span>Play Better.</span></h2>
+<p>Sujangarh ka premium Box Cricket experience. Apna slot book karo aur game start karo.</p>
+</section>
+
+<main class="container">
+
+<section class="card" id="book">
+<h2 class="title">📅 <span>BOOK YOUR SLOT</span></h2>
+
+<div class="grid">
+<div>
+<label>Select Date</label>
+<input id="date" type="date">
+</div>
+
+<div>
+<label>Start Time Slot</label>
+<select id="slot">
+<option value="">-- Select Time Slot --</option>
+</select>
+</div>
+</div>
+
+<div class="grid">
+<div>
+<label>Duration</label>
+<select id="duration">
+<option value="1">1 Hour</option>
+<option value="2">2 Hours</option>
+<option value="3">3 Hours</option>
+<option value="4">4 Hours</option>
+</select>
+</div>
+
+<div>
+<label>Booking Type</label>
+<div class="type-row">
+<button type="button" id="dayBtn" class="type-btn active">☀️ DAY ₹500/hr</button>
+<button type="button" id="nightBtn" class="type-btn">🌙 NIGHT ₹1000/hr</button>
+</div>
+</div>
+</div>
+
+<div class="slot-status">
+<div class="slot-status-title">Slot Status</div>
+<div class="notice info">🟢 AVAILABLE &nbsp;&nbsp; 🔴 BOOKED</div>
+<div id="slotGrid" class="slot-grid"></div>
+</div>
+
+<div class="total">
+<div>Total Amount</div>
+<strong id="total">₹500</strong>
+<div class="advance">50% Advance: <b id="advance">₹250</b></div>
+</div>
+
+<div class="grid">
+<div>
+<label>Your Name</label>
+<input id="name" type="text" placeholder="Enter your name">
+</div>
+
+<div>
+<label>WhatsApp Number</label>
+<input id="phone" type="tel" inputmode="numeric" maxlength="10" placeholder="10 digit mobile number">
+</div>
+</div>
+
+<label>Team / Group Name</label>
+<input id="team" type="text" placeholder="Example: Friends Cricket Team">
+
+<button type="button" class="primary" id="payBtn">💳 PROCEED TO PAYMENT</button>
+
+<div id="paymentBox" class="payment-box">
+
+<div class="notice info">
+50% advance payment UPI se karein.
+<br><br>
+<b>UPI ID:</b> 9587600798@naviaxis
+<br>
+<b>Payee:</b> ROSHAN ALI PARIHAR
+</div>
+
+<button type="button" class="secondary" id="upiBtn">
+📲 PAY ADVANCE USING UPI APP
+</button>
+
+<div class="notice warn">
+Payment complete karne ke baad neeche wala button dabayein.
+</div>
+
+<button type="button" class="paid-btn" id="paidBtn">
+✅ I HAVE COMPLETED PAYMENT
+</button>
+
+<div id="paidMessage" class="notice success" style="display:none">
+Booking saved successfully.
+</div>
+
+</div>
+</section>
+
+<section class="card" id="rates">
+<h2 class="title">₹ <span>OUR RATES</span></h2>
+<p>☀️ Day: <b>₹500 / hour</b></p>
+<p>🌙 Night: <b>₹1000 / hour</b></p>
+<div class="notice info">Booking ke liye 50% advance required hai.</div>
+</section>
+
+<section class="card" id="rules">
+<h2 class="title">⚑ <span>BOOKING RULES</span></h2>
+<p>1️⃣ Date, slot aur duration select karein.</p>
+<p>2️⃣ 50% advance UPI se pay karein.</p>
+<p>3️⃣ Payment ke baad WhatsApp confirmation bhejein.</p>
+<p>4️⃣ Booked slot dobara select nahi kiya ja sakta.</p>
+</section>
+
+</main>
+
+<footer>
+<b>🏏 Teliayan Cricket Box</b>
+<br>
+Jain Vishva Bharati Road, Sujangarh
+<br>
+WhatsApp: 9587600798
+</footer>
+
+<script>
+
+const SUPABASE_URL="https://mmfflwbsfsrsjfhcupyh.supabase.co";
+const SUPABASE_KEY="sb_publishable_A3XcvLOKgUOL9ojKHWxVxw_Zfbf1N_k";
+
+const UPI_ID="9587600798@naviaxis";
+const PAYEE="ROSHAN ALI PARIHAR";
+const WHATSAPP="919587600798";
+
+let bookingType="DAY";
+let rate=500;
+let currentBookings=[];
+
+const dateEl=document.getElementById("date");
+const slotEl=document.getElementById("slot");
+const durationEl=document.getElementById("duration");
+const totalEl=document.getElementById("total");
+const advanceEl=document.getElementById("advance");
+const slotGrid=document.getElementById("slotGrid");
+const dayBtn=document.getElementById("dayBtn");
+const nightBtn=document.getElementById("nightBtn");
+const payBtn=document.getElementById("payBtn");
+const paymentBox=document.getElementById("paymentBox");
+const upiBtn=document.getElementById("upiBtn");
+const paidBtn=document.getElementById("paidBtn");
+const paidMessage=document.getElementById("paidMessage");
+
+function today(){
+const d=new Date();
+return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+}
+
+dateEl.min=today();
+dateEl.value=today();
+
+async function supabaseRequest(method,endpoint,body=null){
+
+const options={
+method:method,
+headers:{
+"apikey":SUPABASE_KEY,
+"Authorization":"Bearer "+SUPABASE_KEY,
+"Content-Type":"application/json",
+"Prefer":"return=representation"
+}
+};
+
+if(body) options.body=JSON.stringify(body);
+
+const response=await fetch(SUPABASE_URL+"/rest/v1/"+endpoint,options);
+const text=await response.text();
+
+if(!response.ok) throw new Error(text);
+
+return text?JSON.parse(text):[];
+}
+
+async function loadBookings(){
+
+slotGrid.innerHTML='<div class="slot loading">⏳ Loading...</div>';
+
+try{
+
+const date=dateEl.value;
+
+const data=await supabaseRequest(
+"GET",
+"bookings?select=booking_date,start_time,end_time,status&booking_date=eq."+encodeURIComponent(date)+"&status=eq.confirmed&order=start_time.asc"
+);
+
+currentBookings=data||[];
+renderSlots();
+
+}catch(error){
+
+console.error(error);
+
+slotGrid.innerHTML='<div class="notice error">Database connection error. Please refresh.</div>';
+
+}
+}
+
+function timeToHour(time){
+return Number(String(time).substring(0,2));
+}
+
+function overlap(start,hours,booking){
+
+const bookingStart=timeToHour(booking.start_time);
+const bookingEnd=timeToHour(booking.end_time);
+const end=start+hours;
+
+return start<bookingEnd && bookingStart<end;
+}
+
+function isBooked(start,hours){
+return currentBookings.some(function(booking){
+return overlap(start,hours,booking);
+});
+}
+
+function createSlots(){
+
+slotEl.innerHTML='<option value="">-- Select Time Slot --</option>';
+
+for(let h=0;h<24;h++){
+
+const option=document.createElement("option");
+
+option.value=h;
+
+option.textContent=
+String(h).padStart(2,"0")+":00 - "+
+String((h+1)%24).padStart(2,"0")+":00";
+
+slotEl.appendChild(option);
+
+}
+}
+
+function renderSlots(){
+
+slotGrid.innerHTML="";
+
+for(let h=0;h<24;h++){
+
+const booked=isBooked(h,1);
+
+const div=document.createElement("div");
+
+div.className="slot"+(booked?" booked":"");
+
+div.textContent=
+String(h).padStart(2,"0")+":00 "+
+(booked?"🔴 BOOKED":"🟢 FREE");
+
+slotGrid.appendChild(div);
+}
+
+const duration=Number(durationEl.value);
+
+Array.from(slotEl.options).forEach(function(option){
+
+if(option.value!==""){
+
+option.disabled=
+isBooked(Number(option.value),duration) ||
+Number(option.value)+duration>24;
+
+}
+
+});
+}
+
+function updateTotal(){
+
+const hours=Number(durationEl.value);
+const total=rate*hours;
+
+totalEl.textContent="₹"+total;
+advanceEl.textContent="₹"+(total/2);
+
+renderSlots();
+}
+
+function getBookingData(){
+
+const name=document.getElementById("name").value.trim();
+const phone=document.getElementById("phone").value.trim();
+const team=document.getElementById("team").value.trim();
+
+const start=Number(slotEl.value);
+const hours=Number(durationEl.value);
+
+if(!dateEl.value || slotEl.value==="" || !name || !team){
+
+alert("Date, Slot, Name aur Team Name complete karein.");
+return null;
+}
+
+if(!/^[0-9]{10}$/.test(phone)){
+
+alert("Please valid 10 digit WhatsApp number enter karein.");
+return null;
+}
+
+if(start+hours>24){
+
+alert("Is time par selected duration available nahi hai.");
+return null;
+}
+
+if(isBooked(start,hours)){
+
+alert("🔴 Ye slot already BOOKED hai.");
+loadBookings();
+return null;
+}
+
+const total=rate*hours;
+
+return{
+name:name,
+phone:phone,
+team:team,
+date:dateEl.value,
+start:start,
+hours:hours,
+total:total,
+advance:total/2,
+type:bookingType
+};
+}
+
+createSlots();
+updateTotal();
+loadBookings();
+
+dateEl.addEventListener("change",function(){
+
+slotEl.value="";
+loadBookings();
+
+});
+
+durationEl.addEventListener("change",updateTotal);
+
+dayBtn.addEventListener("click",function(){
+
+bookingType="DAY";
+rate=500;
+
+dayBtn.classList.add("active");
+nightBtn.classList.remove("active");
+
+updateTotal();
+
+});
+
+nightBtn.addEventListener("click",function(){
+
+bookingType="NIGHT";
+rate=1000;
+
+nightBtn.classList.add("active");
+dayBtn.classList.remove("active");
+
+updateTotal();
+
+});
+
+payBtn.addEventListener("click",function(){
+
+const data=getBookingData();
+
+if(!data)return;
+
+paymentBox.classList.add("show");
+
+paymentBox.scrollIntoView({behavior:"smooth"});
+
+upiBtn.onclick=function(){
+
+const upi=
+"upi://pay"+
+"?pa="+encodeURIComponent(UPI_ID)+
+"&pn="+encodeURIComponent(PAYEE)+
+"&am="+data.advance+
+"&cu=INR";
+
+window.location.href=upi;
+
+};
+
+});
+
+paidBtn.addEventListener("click",async function(){
+
+const data=getBookingData();
+
+if(!data)return;
+
+paidBtn.disabled=true;
+paidBtn.textContent="⏳ SAVING BOOKING...";
+
+try{
+
+const startTime=String(data.start).padStart(2,"0")+":00:00";
+const endTime=String((data.start+data.hours)%24).padStart(2,"0")+":00:00";
+
+const booking={
+booking_date:data.date,
+start_time:startTime,
+end_time:endTime,
+customer_name:data.name,
+customer_phone:data.phone,
+status:"confirmed"
+};
+
+await supabaseRequest("POST","bookings",booking);
+
+await loadBookings();
+
+paidMessage.style.display="block";
+paidMessage.textContent="✅ Booking saved successfully. WhatsApp khola ja raha hai…";
+
+const message=
+"🏏 TELIYAN CRICKET BOX - BOOKING\n\n"+
+"👤 Name: "+data.name+"\n"+
+"📱 WhatsApp: "+data.phone+"\n"+
+"👥 Team: "+data.team+"\n"+
+"📅 Date: "+data.date+"\n"+
+"⏰ Start: "+String(data.start).padStart(2,"0")+":00\n"+
+"⏱️ Duration: "+data.hours+" Hour(s)\n"+
+"💰 Total: ₹"+data.total+"\n"+
+"💳 Advance: ₹"+data.advance+"\n\n"+
+"✅ Advance payment completed.\nPlease confirm my slot.";
+
+setTimeout(function(){
+
+window.open(
+"https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(message),
+"_blank"
+);
+
+},700);
+
+}catch(error){
+
+console.error(error);
+
+paidBtn.disabled=false;
+paidBtn.textContent="✅ I HAVE COMPLETED PAYMENT";
+
+alert("❌ Booking save nahi hui. Please dobara try karein.");
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
